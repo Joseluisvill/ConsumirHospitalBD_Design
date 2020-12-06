@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+    </h:head>
+
+    <h:body style="margin:0px;">
+        <h:form id="form">
+            <p:dataTable id="data" var="m" value="#{medicamentoController.listamedicamentos}" emptyMessage="No hay usuarios disponibles" paginator="true">
+                <p:column headerText="Id">
+                    <h:outputText value="#{m.id}" />
+                </p:column>
+
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{m.nombre}" />
+                </p:column>
+
+                <p:column headerText="Cantidad">
+                    <h:outputText value="#{m.cantidad}" />
+                </p:column>
+
+                <p:column headerText="Descripcion">
+                    <h:outputText value="#{m.descripcion}" />
+                </p:column>
+                <p:column headerText="Acciones" style="text-align:center;">
+                    <p:button icon="ui-icon-update" value="Eliminar" outcome="eliminar" >
+                        <f:param name="id" value="#{m.id}"/>
+                    </p:button>
+                    <p:spacer width="10"/>
+                    <p:button icon="ui-icon-update" value="Actualizar" outcome="actualizar">
+                        <f:param name="id" value="#{m.id}"/>
+                    </p:button>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>

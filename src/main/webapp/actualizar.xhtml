@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+    </h:head>
+    <h:body style="margin:0px;">
+        <p:breadCrumb>
+            <p:menuitem value="Index" url="http://127.0.0.1:8082/Hospital/faces/index.xhtml" />
+            <p:menuitem value="Crear"  url="http://127.0.0.1:8082/Hospital/faces/crear.xhtml" />
+            <p:menuitem value="Administrar" url="http://127.0.0.1:8082/Hospital/faces/index.xhtml" />
+        </p:breadCrumb>
+        
+        <h:form id="actual">
+            <p:growl id="growl" showDetail="true" sticky="true" />  
+            <div style="padding:15px;">
+
+                <div style="padding:15px;">
+                    <p:outputLabel value="Id: " style="font-weight:bold;"/>
+                    <p:inputText value="#{actualizarMedicamento.medicamentos.id}" style="width:100%"/>
+                </div>
+
+                <div style="padding:15px;">
+                    <p:outputLabel value="Nombre: " style="font-weight:bold;"/>
+                    <p:inputText value="#{actualizarMedicamento.medicamentos.nombre}" style="width:100%"/>
+                </div>
+
+                <div style="padding:15px;">
+                    <p:outputLabel value="Cantidad: " style="font-weight:bold;"/>
+                    <p:inputText style="width:100%" value="#{actualizarMedicamento.medicamentos.cantidad}"/>
+                </div>
+
+                <div style="padding:15px;">
+                    <p:outputLabel value="Descripcion: " style="font-weight:bold;"/>
+                    <p:inputText style="width:100%" value="#{actualizarMedicamento.medicamentos.descripcion}"/>
+                </div>
+                <div style="padding:30px;">
+                    <p:commandButton value="Actualizar Medicamento" action="#{medicamentoController.actualizar(actualizarMedicamento.medicamentos)}" ajax="true" style="width:100%;"
+                                     />
+                    <p:spacer width="10"/>
+                    <p:button  value="Cancelar" outcome="index" style="width:100%;"/>
+                </div>
+
+
+            </div>
+        </h:form>
+
+    </h:body>
+</html>
